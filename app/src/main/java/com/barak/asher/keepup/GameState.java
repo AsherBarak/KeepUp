@@ -49,10 +49,11 @@ public class GameState {
     }
 
     private int CalculateNewYPos(int elapsedTimeMS) {
-
+        return 0;
     }
 
     private int CalculateNewXPos(int elapsedTimeMS) {
+        return 0;
     }
 
 

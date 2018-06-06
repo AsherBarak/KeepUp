@@ -1,38 +1,28 @@
 package com.barak.asher.keepup;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v7.app.ActionBar;
 import android.view.Choreographer;
-import android.view.MotionEvent;
 import android.view.SurfaceHolder;
-import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 /**
  * The game activity
  */
-public class MainGameActivity extends Activity implements SurfaceHolder.Callback,
-        Choreographer.FrameCallback  {
+public class MainGameActivity extends Activity implements Choreographer.FrameCallback  {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(new GameView(this));
+    }
+
 
     @Override
     public void doFrame(long l) {
-
-    }
-
-    @Override
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
-
-    }
-
-    @Override
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
-
-    }
-
-    @Override
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
 
     }
 }
