@@ -10,19 +10,16 @@ import android.view.WindowManager;
 /**
  * The game activity
  */
-public class MainGameActivity extends Activity implements Choreographer.FrameCallback  {
+public class MainGameActivity extends Activity  {
+
+    private GameView gameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(new GameView(this));
-    }
-
-
-    @Override
-    public void doFrame(long l) {
-
+        this.gameView = new GameView(this);
+        setContentView(gameView);
     }
 }
